@@ -1,19 +1,97 @@
-.journey {
-  padding: 140px 15%;
-  background: #f8f8f8;
+/* HERO */
+.journey-hero {
+  padding: 140px 10% 80px;
+  text-align: center;
 }
 
+.journey-hero h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.journey-hero p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* TIMELINE */
+.journey-timeline {
+  position: relative;
+  padding: 60px 10% 140px;
+}
+
+/* GOLD LINE */
+.journey-timeline::before {
+  content: "";
+  position: absolute;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #c9a24d,
+    transparent
+  );
+}
+
+/* STEP */
 .journey-step {
   display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-bottom: 50px;
-  font-size: 18px;
+  gap: 40px;
+  margin-bottom: 80px;
+  position: relative;
 }
 
-.journey-step .dot {
-  width: 14px;
-  height: 14px;
-  background: #c9a24d;
+/* MARKER */
+.journey-marker {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.journey-marker span {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #c9a24d;
+  color: #c9a24d;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+/* CONTENT */
+.journey-content {
+  max-width: 520px;
+}
+
+.journey-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.journey-content p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .journey-timeline::before {
+    left: 20px;
+  }
+
+  .journey-step {
+    gap: 20px;
+  }
+
+  .journey-marker {
+    width: 40px;
+  }
 }

@@ -1,0 +1,116 @@
+/* HERO */
+.about-hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #f8f8f8
+  );
+}
+
+.about-hero h1 {
+  font-size: 52px;
+  letter-spacing: 2px;
+}
+
+.about-hero p {
+  margin-top: 14px;
+  color: #777;
+  font-size: 16px;
+}
+
+/* GENERIC SECTION */
+.about-section {
+  padding: 120px 15%;
+  background: #ffffff;
+  color: #111;
+}
+
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 24px;
+}
+
+.about-section p {
+  max-width: 760px;
+  line-height: 1.8;
+  color: #666;
+}
+
+/* ETHOS */
+.about-ethos {
+  padding: 120px 15%;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.about-ethos h2 {
+  font-size: 32px;
+}
+
+.ethos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.ethos-card {
+  padding: 50px 30px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid #e6d8a8;
+}
+
+.ethos-card h3 {
+  font-size: 22px;
+  color: #c9a24d;
+}
+
+/* LEADERSHIP */
+.leaders-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.leader-card {
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid #e6d8a8;
+  text-align: center;
+  background: #ffffff;
+}
+
+.leader-card p {
+  font-size: 15px;
+  color: #333;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ethos-grid,
+  .leaders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ethos-grid,
+  .leaders-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero h1 {
+    font-size: 36px;
+  }
+
+  .about-section {
+    padding: 80px 10%;
+  }
+}
