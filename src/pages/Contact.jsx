@@ -45,9 +45,22 @@ export default function Contact() {
 
     if (hasError) return;
 
+    fetch("/api/consultation.contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        consent: formData.consent
+      })
+    });
+
+
     console.log("Consultation Request:", formData);
 
-    // ✅ SUCCESS STATE
     setSubmitted(true);
   };
 
