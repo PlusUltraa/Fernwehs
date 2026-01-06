@@ -1,54 +1,66 @@
 .footer {
   background: #f8f8f8;
-  padding: 20px 5% 5px;
-  border-top: 1px solid #eaeaea;
+  padding: 60px 6%;
 }
 
-.footer-inner {
+/* GRID */
+.footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-columns: 1fr; /* MOBILE */
   gap: 30px;
-  align-items: start;
+  text-align: center;
 }
 
-.footer-brand h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-  letter-spacing: 3px;
+/* BRAND */
+.footer-brand h3 {
+  letter-spacing: 2px;
+  margin-bottom: 8px;
 }
 
 .footer-brand p {
-  margin-top: 10px;
-  color: #777;
+  font-size: 14px;
+  color: #666;
 }
 
+/* LINKS */
 .footer-links {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .footer-links a {
+  text-decoration: none;
+  color: #333;
   font-size: 14px;
-  color: #444;
-  transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
-  color: #c9a24d;
-}
-
-.footer-contact p {
+/* INFO */
+.footer-info p {
   font-size: 14px;
   color: #555;
-  margin-bottom: 10px;
 }
 
-.footer-bottom {
-  margin-top: 20px;
-  padding-top: 10px;
-  border-top: 1px solid #eaeaea;
-  font-size: 12px;
-  text-align: center;
-  color: #888;
+/* ===== TABLET ===== */
+@media (min-width: 768px) {
+  .footer {
+    padding: 80px 10%;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    align-items: start;
+  }
+
+  .footer-links {
+    align-items: flex-start;
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+  .footer {
+    padding: 100px 15%;
+  }
 }

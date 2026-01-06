@@ -52,8 +52,9 @@ export default function Home() {
 
               {/* SCROLL INDICATOR */}
               <div className="scroll-indicator">
-                <span />
+                <span/>
               </div>
+              <span>Scroll</span>
             </motion.div>
           </motion.div>
         )}

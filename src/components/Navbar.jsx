@@ -1,45 +1,78 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import "../styles/navbar.css";
 
 export default function Navbar() {
-  return (
-    <nav style={styles.nav}>
-      <Link to="/" style={styles.logo}>FERNWEHS</Link>
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
 
-      <div style={styles.links}>
-        <Link to="/about">About</Link>
-        <Link to="/services">Services</Link>
-        <Link to="/journey">Journey</Link>
-        <Link to="/contact">Contact</Link>
-      </div>
-    </nav>
+  const closeMenu = () => setOpen(false);
+
+  return (
+    <>
+      {/* TOP NAVBAR */}
+      <nav className="navbar">
+        {/* BRAND */}
+        <div className="nav-logo">
+          <Link to="/" onClick={closeMenu}>
+            FERNWEHS
+          </Link>
+        </div>
+
+        {/* DESKTOP LINKS */}
+        <div className="nav-links">
+          <Link to="/about">About</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/journey">Journey</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
+
+        {/* MOBILE HAMBURGER */}
+        <button
+          className="hamburger"
+          aria-label="Open menu"
+          onClick={() => setOpen(true)}
+        >
+          ☰
+        </button>
+      </nav>
+
+      {/* MOBILE MENU OVERLAY */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="mobile-menu"
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {/* CLOSE BUTTON */}
+            <button
+              className="close-btn"
+              aria-label="Close menu"
+              onClick={closeMenu}
+            >
+              ✕
+            </button>
+
+            {/* MOBILE LINKS */}
+            <Link to="/about" onClick={closeMenu}>
+              About
+            </Link>
+            <Link to="/services" onClick={closeMenu}>
+              Services
+            </Link>
+            <Link to="/journey" onClick={closeMenu}>
+              Journey
+            </Link>
+            <Link to="/contact" onClick={closeMenu}>
+              Contact
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
-
-const styles = {
-  nav: {
-    position: "fixed",
-    top: 20,
-    left: "50%",
-    transform: "translateX(-50%)",
-    width: "90%",
-    padding: "18px 50px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    background: "rgba(255,255,255,0.85)",
-    backdropFilter: "blur(10px)",
-    borderRadius: "14px",
-    border: "1px solid #EAEAEA",
-    zIndex: 1000
-  },
-  logo: {
-    fontFamily: "Playfair Display",
-    fontSize: "22px",
-    letterSpacing: "2px"
-  },
-  links: {
-    display: "flex",
-    gap: "32px",
-    fontSize: "14px"
-  }
-};

@@ -3,11 +3,11 @@ import "../styles/footer.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-inner">
-        
+      <div className="footer-grid">
+
         {/* BRAND */}
         <div className="footer-brand">
-          <h2>FERNWEHS</h2>
+          <h3>FERNWEHS</h3>
           <p>The New You</p>
         </div>
 
@@ -19,18 +19,13 @@ export default function Footer() {
           <a href="/contact">Contact</a>
         </div>
 
-        {/* CONTACT */}
-        <div className="footer-contact">
+        {/* INFO */}
+        <div className="footer-info">
           <p>care@fernwehs.com</p>
           <p>Hyderabad • Mumbai • Delhi</p>
         </div>
 
       </div>
-
-      <div className="footer-bottom">
-        © {new Date().getFullYear()} FERNWEHS. All rights reserved.
-      </div>
     </footer>
   );
 }
-  
