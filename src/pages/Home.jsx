@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "../styles/home.css";
-import heroImage from "../assets/images/hero.jpg";
 
+// IMAGES
+import heroImage from "../assets/images/hero.jpg";
+import confidentWoman from "../assets/images/woman.jpg";
+import luxuryRecovery from "../assets/images/recovery.jpg";
+import glowingSkin from "../assets/images/glowing-skin.jpg";
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
 
-  // Lock scroll until intro is dismissed
+  // Lock scroll until intro dismissed
   useEffect(() => {
     document.body.style.overflow = entered ? "auto" : "hidden";
   }, [entered]);
@@ -15,9 +19,7 @@ export default function Home() {
   // Detect first scroll
   useEffect(() => {
     const handleScroll = () => {
-      if (!entered) {
-        setEntered(true);
-      }
+      if (!entered) setEntered(true);
     };
 
     window.addEventListener("wheel", handleScroll, { once: true });
@@ -50,11 +52,10 @@ export default function Home() {
               <h1>FERNWEHS</h1>
               <p>The New You</p>
 
-              {/* SCROLL INDICATOR */}
               <div className="scroll-indicator">
-                <span/>
+                <span />
               </div>
-              <span>Scroll</span>
+              <span className="scroll-text">Scroll to Begin</span>
             </motion.div>
           </motion.div>
         )}
@@ -67,14 +68,66 @@ export default function Home() {
         animate={{ scale: entered ? 1 : 1.05 }}
         transition={{ duration: 1.4, ease: "easeOut" }}
       >
-        <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
+        {/* HERO */}
+        <section
+          className="hero"
+          style={{ backgroundImage: `url(${heroImage})` }}
+        >
           <div className="hero-content">
             <h1>FERNWEHS</h1>
             <p>A Destination for the New You</p>
           </div>
         </section>
 
-        {/* other home sections here */}
+        {/* IMAGE TILES */}
+        <section className="home-section">
+          <div className="home-image-grid">
+            {/* TILE 1 */}
+            <div className="home-image-tile">
+              <img src={confidentWoman} alt="Refined confidence" />
+              <div className="tile-content-below">
+                <h3>Refined Confidence</h3>
+                <p>
+                  Subtle aesthetic enhancements designed to reveal your most
+                  confident, natural self.
+                </p>
+                <a href="/contact" className="book-now-btn-below">
+                  Book Now
+                </a>
+              </div>
+            </div>
+
+            {/* TILE 2 */}
+            <div className="home-image-tile">
+              <img src={luxuryRecovery} alt="Curated recovery" />
+              <div className="tile-content-below">
+                <h3>Curated Recovery</h3>
+                <p>
+                  Private, tranquil recovery experiences curated with
+                  uncompromising comfort.
+                </p>
+                <a href="/contact" className="book-now-btn-below">
+                  Book Now
+                </a>
+              </div>
+            </div>
+
+            {/* TILE 3 */}
+            <div className="home-image-tile">
+              <img src={glowingSkin} alt="Precision aesthetics" />
+              <div className="tile-content-below">
+                <h3>Precision Aesthetics</h3>
+                <p>
+                  Advanced treatments delivered with clinical excellence and
+                  artistic care.
+                </p>
+                <a href="/contact" className="book-now-btn-below">
+                  Book Now
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </motion.div>
     </>
   );

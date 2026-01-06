@@ -1,108 +1,110 @@
-/* ===============================
-   MOBILE FIRST (DEFAULT)
-   =============================== */
 
-.services-scroll {
+
+.services-wrapper {
   display: grid;
-  grid-template-columns: 1fr;
-  /* ✅ single column on mobile */
-  gap: 60px;
-  padding: 100px 6%;
-  background: #ffffff;
+  grid-template-columns: 480px 1fr;
+  gap: 120px;
+  padding: 120px 10%;
+  background: #fff;
 }
 
-.services-image {
-  position: relative;
-  width: 100%;
 
-  /* 🔥 CRITICAL: force a stable height always */
-  min-height: 70vh;
-  max-height: 70vh;
+.services-image-frame {
+  position: sticky;
+  top: 120px;
+  height: 70vh;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .service-image {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-  border-radius: 24px;
-
+  opacity: 0;
   transition: opacity 0.6s ease;
-  will-change: opacity;
 }
 
+/* =========================
+   SCROLL CONTENT
+   ========================= */
 
-/* TEXT COLUMN */
-.services-text {
+.services-scroll {
   display: flex;
   flex-direction: column;
-  gap: 120px;
 }
 
-/* TEXT BLOCK */
 .service-text-block {
-  min-height: auto;
-  /* ❌ remove vh on mobile */
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .service-text-block h2 {
-  font-size: 32px;
-  margin-bottom: 16px;
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  margin-bottom: 18px;
 }
 
 .service-text-block p {
-  max-width: 100%;
+  max-width: 460px;
   font-size: 16px;
+  line-height: 1.8;
   color: #666;
 }
 
-/* ===============================
-   TABLET
-   =============================== */
-@media (min-width: 768px) {
-  .services-scroll {
-    padding: 120px 8%;
-  }
+/* =========================
+   CTA
+   ========================= */
 
-  .services-image {
-    min-height: 420px;
-  }
-
-  .service-text-block h2 {
-    font-size: 36px;
-  }
+.services-cta {
+  padding: 120px 0 40px;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
 }
 
-/* ===============================
-   DESKTOP (RESTORE ORIGINAL BEHAVIOR)
-   =============================== */
-@media (min-width: 1024px) {
-  .services-scroll {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 100px;
-    padding: 160px 10%;
+.services-cta h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-bottom: 16px;
+}
 
-    align-items: flex-start;
-    overflow: visible;
+.services-cta p {
+  max-width: 520px;
+  margin-bottom: 32px;
+  color: #666;
+}
+
+.services-cta-btn {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e6c76f, #d4af37);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 1024px) {
+  .services-wrapper {
+    grid-template-columns: 1fr;
+    gap: 80px;
   }
 
-  .services-image {
-    position: sticky;
-    top: 120px;
-    height: 70vh;
-    align-self: flex-start;
+  .services-image-frame {
+    position: relative;
+    height: 320px;
   }
 
   .service-text-block {
-    min-height: 80vh;
-    display: flex;
-    justify-content: center;
+    min-height: auto;
+    padding: 80px 0;
   }
 }

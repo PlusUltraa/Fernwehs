@@ -3,7 +3,6 @@ import { useRef } from "react";
 import PageTransition from "../components/PageTransition";
 import "../styles/services.css";
 
-// IMPORT IMAGES (IMPORTANT)
 import antiAge from "../assets/images/service-antiage.jpg";
 import dentistry from "../assets/images/service-dentistry.jpg";
 import laser from "../assets/images/service-laser.jpg";
@@ -27,15 +26,13 @@ const services = [
 ];
 
 export default function Services() {
-  const ref = useRef(null);
+  const scrollRef = useRef(null);
 
-  // Track scroll progress across the section
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: scrollRef,
     offset: ["start start", "end end"]
   });
 
-  // Map scroll to active index
   const activeIndex = useTransform(
     scrollYProgress,
     services.map((_, i) => i / services.length),
@@ -44,42 +41,45 @@ export default function Services() {
 
   return (
     <PageTransition>
-      <section ref={ref} className="services-scroll">
-        
-        {/* STICKY IMAGE */}
-        <div className="services-image">
-          {services.map((service, i) => (
+      <section className="services-wrapper">
+
+        {/* FIXED IMAGE COLUMN (NOT PART OF SCROLL TARGET) */}
+        <div className="services-image-frame">
+          {services.map((s, i) => (
             <motion.img
               key={i}
-              src={service.img}
-              alt={service.title}
+              src={s.img}
+              alt={s.title}
               className="service-image"
               style={{
-                opacity: useTransform(
-                  activeIndex,
-                  (v) => (Math.round(v) === i ? 1 : 0)
+                opacity: useTransform(activeIndex, v =>
+                  Math.round(v) === i ? 1 : 0
                 )
               }}
             />
           ))}
         </div>
 
-        {/* SCROLL TEXT */}
-        <div className="services-text">
-          {services.map((service, i) => (
-            <motion.div
-              key={i}
-              className="service-text-block"
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -60 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              viewport={{ amount: 0.6 }}
-            >
-              <h2>{service.title}</h2>
-              <p>{service.desc}</p>
-            </motion.div>
+        {/* SCROLL TARGET */}
+        <div ref={scrollRef} className="services-scroll">
+          {services.map((s, i) => (
+            <section key={i} className="service-text-block">
+              <h2>{s.title}</h2>
+              <p>{s.desc}</p>
+            </section>
           ))}
+
+          {/* CTA */}
+          <div className="services-cta">
+            <h3>Begin Your Transformation</h3>
+            <p>
+              Speak with our private concierge to curate your personalized
+              aesthetic journey.
+            </p>
+            <a href="/contact" className="services-cta-btn">
+              Book a Private Consultation
+            </a>
+          </div>
         </div>
 
       </section>

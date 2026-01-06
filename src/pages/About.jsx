@@ -9,9 +9,10 @@ export default function About() {
       {/* HERO */}
       <section className="about-hero">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          className="about-hero-content"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
+          transition={{ duration: 1.1, ease: "easeOut" }}
         >
           <h1>THE FERNWEHS EXPERIENCE</h1>
           <p>Elegance. Excellence. Experience.</p>
@@ -21,9 +22,9 @@ export default function About() {
       {/* WHO WE ARE */}
       <section className="about-section">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           <h2>Who We Are</h2>
@@ -45,9 +46,9 @@ export default function About() {
             <motion.div
               key={i}
               className="ethos-card"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
+              transition={{ delay: i * 0.15, ease: "easeOut" }}
               viewport={{ once: true }}
             >
               <h3>{item}</h3>
@@ -62,22 +63,47 @@ export default function About() {
 
         <div className="leaders-grid">
           {[
-            "Clinical Excellence",
-            "Operations & Partnerships",
-            "Finance & Governance",
-            "Technology & CX",
-            "Global Business",
-            "PMO & Compliance"
-          ].map((role, i) => (
+            {
+              title: "Clinical Excellence",
+              desc:
+                "Globally trained specialists ensuring the highest standards in aesthetic medicine and patient outcomes."
+            },
+            {
+              title: "Operations & Partnerships",
+              desc:
+                "Managing international patient journeys, luxury hospitality, and strategic healthcare alliances."
+            },
+            {
+              title: "Finance & Governance",
+              desc:
+                "Ensuring transparency, compliance, and financial stewardship across all operations."
+            },
+            {
+              title: "Technology & CX",
+              desc:
+                "Driving digital innovation and refined patient experience design across platforms."
+            },
+            {
+              title: "Global Business",
+              desc:
+                "Scaling FERNWEHS as a leader in luxury aesthetic medical tourism worldwide."
+            },
+            {
+              title: "PMO & Compliance",
+              desc:
+                "Overseeing delivery, regulatory adherence, and operational excellence."
+            }
+          ].map((item, i) => (
             <motion.div
               key={i}
               className="leader-card"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15 }}
+              transition={{ delay: i * 0.1, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <p>{role}</p>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
             </motion.div>
           ))}
         </div>
