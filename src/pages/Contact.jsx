@@ -97,7 +97,7 @@ export default function Contact() {
             </motion.a>
 
             <motion.a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/918949466002?text=Hello%20FERNWEHS%20Concierge%2C%0A%0AI%E2%80%99m%20interested%20in%20a%20private%20aesthetic%20consultation%20and%20would%20like%20to%20know%20more%20about%20personalized%20treatment%20options.%0A%0AThank%20you."
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
