@@ -14,7 +14,7 @@
 }
 
 .intro-content h1 {
-  font-size: 72px;
+  font-size: 60px;
   letter-spacing: 4px;
 }
 
@@ -88,4 +88,34 @@
   padding: 80px;
   border-radius: 18px;
   text-align: center;
+}
+
+/* MOBILE FIRST */
+.home-brand {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  pointer-events: none;
+  z-index: 10;
+
+  font-size: 48px;
+  letter-spacing: 2px;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+  .home-brand {
+    font-size: 72px;
+    letter-spacing: 4px;
+  }
+}
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+  .home-brand {
+    font-size: 96px;
+    letter-spacing: 6px;
+  }
 }

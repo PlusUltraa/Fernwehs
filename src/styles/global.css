@@ -1,18 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
   background: #ffffff;
-  color: #111111;
-  font-family: "Inter", sans-serif;
+  color: #111;
 }
 
-h1, h2, h3 {
+
+h1,
+h2,
+h3 {
   font-family: "Playfair Display", serif;
   letter-spacing: 0.5px;
 }
@@ -25,4 +30,17 @@ p {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .home-hero {
+    min-height: -webkit-fill-available;
+  }
+}
+
+.page-transition {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
