@@ -21,8 +21,8 @@ export default function Footer() {
 
         {/* INFO */}
         <div className="footer-info">
-          <p>care@fernwehs.com</p>
-          <p>Hyderabad • Mumbai • Delhi</p>
+          <p>drchirag.fernwehs@gmail.com</p>
+          <p>Hyderabad • Mumbai • Delhi • Jaipur • Udaipur • Kochi • Chandigarh • Chennai</p>
         </div>
 
       </div>

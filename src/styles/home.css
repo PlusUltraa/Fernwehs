@@ -25,6 +25,59 @@
 }
 
 .intro-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* =========================
+   HERITAGE MIRROR BACKGROUND
+   ========================= */
+
+.heritage-mirror-bg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 520px;
+  height: 720px;
+
+  /* IMPORTANT: use public path OR correct relative path */
+  background-image: url("/images/heritage-mirror.jpg");
+  background-size: cover;
+  background-position: center;
+
+  opacity: 0.18;
+  filter: blur(1px) saturate(0.9);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heritage-mirror-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.65),
+    rgba(212, 175, 55, 0.08),
+    rgba(255, 255, 255, 0.75)
+  );
+}
+
+/* =========================
+   MIRROR CONTENT
+   ========================= */
+
+.mirror-glass {
+  position: relative;
+  z-index: 1;
+  margin: 0 auto;
   text-align: center;
 }
 
@@ -41,6 +94,10 @@
   text-transform: uppercase;
   color: var(--text-muted);
 }
+
+/* =========================
+   SCROLL INDICATOR
+   ========================= */
 
 .scroll-indicator {
   margin: 24px auto 8px;
@@ -93,7 +150,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
+
+
+/* Subtle luxury movement */
+@keyframes heroSlide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 
 .hero-content {
   text-align: center;
@@ -114,12 +185,43 @@
   color: var(--text-muted);
 }
 
+.hero-static {
+  height: 75vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay-text {
+  background: rgba(255, 255, 255, 0.82);
+  padding: 48px 64px;
+  border-radius: 28px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.hero-overlay-text h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 56px;
+  letter-spacing: 0.12em;
+}
+
+.hero-overlay-text p {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #9c7c2f;
+}
+
+
 /* =========================
    IMAGE GRID SECTION
    ========================= */
 
 .home-section {
-  padding: 120px 10%;
+  padding: 80px 10% 40px; /* 🔧 GAP FIX HERE */
   background: var(--bg-white);
 }
 
@@ -207,7 +309,7 @@
   }
 
   .home-section {
-    padding: 80px 8%;
+    padding: 56px 8% 32px;
   }
 
   .home-image-grid {
@@ -219,3 +321,16 @@
     height: 240px;
   }
 }
+
+@media (max-width: 768px) {
+  .heritage-mirror-bg {
+    width: 300px;
+    height: 420px;
+    opacity: 0.14;
+  }
+
+  .intro-content {
+    padding: 0 16px;
+  }
+}
+
