@@ -7,9 +7,9 @@ import antiAge from "../assets/images/service-antiage.jpg";
 import glowingSkin from "../assets/images/glowing-skin.jpg";
 import laser from "../assets/images/service-laser.jpg";
 import dentistry from "../assets/images/service-dentistry.jpg";
-import woman from "../assets/images/woman.jpg";
-import hero from "../assets/images/hero.jpg";
-import recovery from "../assets/images/recovery.jpg";
+import orthodontics from "../assets/images/orthodontics.jpg";
+import hair from "../assets/images/hair.png";
+import kidsdentistry from "../assets/images/kids-dentistry.jpg"
 
 // Data Extracted from Brochure
 const servicesData = [
@@ -74,7 +74,7 @@ const servicesData = [
     id: "general-kids-dentistry",
     title: "General & Kids Dentistry",
     desc: "A welcoming, stress-free environment for the entire family. We pride ourselves on being Udaipur's only dedicated full-time kids' dentist.",
-    img: woman,
+    img: kidsdentistry,
     items: [
       { name: "Exclusive Kids Dentistry", detail: "Specialized, gentle care for children." },
       { name: "Painless Dentistry", detail: "Advanced techniques for stress-free treatments." },
@@ -85,7 +85,7 @@ const servicesData = [
     id: "orthodontics",
     title: "Orthodontics & Functional Health",
     desc: "Beyond aesthetics, we correct function. From aligning teeth to treating sleep apnea, we ensure your oral health supports your overall well-being.",
-    img: hero,
+    img: orthodontics,
     items: [
       { name: "Orthodontics", detail: "Straighten misaligned teeth with braces or aligners." },
       { name: "Interceptive Orthodontics", detail: "Early solutions to guide jaw growth." },
@@ -98,7 +98,7 @@ const servicesData = [
     id: "hair-body",
     title: "Hair Restoration & Body",
     desc: "Reclaim your confidence with our specialized hair growth protocols and non-invasive body contouring solutions.",
-    img: recovery,
+    img: hair,
     items: [
       { name: "Hair Transplant", detail: "Permanent, natural-looking hair restoration." },
       { name: "Hair Growth Treatment", detail: "Stimulate growth and reduce hair fall naturally (Head & Beard)." },

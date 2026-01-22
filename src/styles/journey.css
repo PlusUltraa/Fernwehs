@@ -1,97 +1,293 @@
+/* src/styles/journey.css */
+
 /* HERO */
 .journey-hero {
-  padding: 140px 10% 80px;
+  padding: 160px 10% 80px; 
   text-align: center;
+  background: radial-gradient(circle at 50% 50%, #fafafa 0%, #ffffff 100%);
 }
 
 .journey-hero h1 {
-  font-size: 48px;
-  margin-bottom: 16px;
+  font-size: 56px;
+  margin-bottom: 24px;
+  color: #111;
+  font-family: "Playfair Display", serif;
 }
 
 .journey-hero p {
   color: #666;
-  font-size: 16px;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* TIMELINE */
+/* TIMELINE CONTAINER */
 .journey-timeline {
   position: relative;
-  padding: 60px 10% 140px;
+  padding: 80px 10% 120px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* GOLD LINE */
+/* CENTER LINE */
 .journey-timeline::before {
   content: "";
   position: absolute;
-  left: 40px;
+  left: 50%;
   top: 0;
   bottom: 0;
-  width: 2px;
+  width: 1px;
   background: linear-gradient(
     to bottom,
     transparent,
-    #c9a24d,
+    #d4af37,
+    #d4af37,
     transparent
   );
+  transform: translateX(-50%);
+  opacity: 0.3;
 }
 
-/* STEP */
+/* STEP CARD */
 .journey-step {
   display: flex;
-  gap: 40px;
-  margin-bottom: 80px;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 100px;
   position: relative;
+  width: 100%;
 }
 
-/* MARKER */
-.journey-marker {
-  width: 80px;
-  display: flex;
-  justify-content: center;
+/* Alternate Left/Right Alignment */
+.journey-step:nth-child(odd) {
+  flex-direction: row;
 }
 
-.journey-marker span {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #c9a24d;
-  color: #c9a24d;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
+.journey-step:nth-child(even) {
+  flex-direction: row-reverse;
 }
 
-/* CONTENT */
+/* CONTENT BOX */
 .journey-content {
-  max-width: 520px;
+  width: 42%;
+  padding: 30px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  text-align: left;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+/* Empty spacer for the other side to balance flexbox */
+.journey-spacer {
+  width: 42%;
+}
+
+.journey-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.3);
 }
 
 .journey-content h3 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #111;
+  font-family: "Playfair Display", serif;
 }
 
 .journey-content p {
-  color: #666;
+  color: #555;
   font-size: 15px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+/* MARKER (CIRCLE ON LINE) */
+.journey-marker {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #d4af37;
+  color: #d4af37;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  z-index: 2;
+  box-shadow: 0 0 0 8px #ffffff;
+  margin-top: 0;
+}
+
+/* =========================
+   BEFORE & AFTER GALLERY
+   ========================= */
+.results-section {
+  padding: 100px 5%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.results-header {
+  margin-bottom: 60px;
+}
+
+.results-header h2 {
+  font-size: 42px;
+  font-family: "Playfair Display", serif;
+  color: #111;
+  margin-bottom: 16px;
+}
+
+.results-header p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* Updated Grid for Wider Cards */
+.results-grid {
+  display: grid;
+  /* Use auto-fit with a larger minmax to ensure cards are wide but responsive */
+  /* Reduced min-width slightly for better tablet scaling */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.result-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vertical Stack for Images */
+.result-images {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Fixed height for each image half */
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.comparison-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area nicely */
+  object-position: center;
+  display: block;
+}
+
+.label-overlay {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 6px 12px;
+  font-size: 11px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.result-info {
+  margin-top: auto;
+}
+
+.result-info h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  color: #111;
+  margin-bottom: 8px;
+}
+
+.result-info p {
+  font-size: 15px;
+  color: #666;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .journey-hero {
+    padding: 120px 5% 60px;
+  }
+
+  .journey-hero h1 {
+    font-size: 36px;
+  }
+
+  .journey-timeline {
+    padding: 60px 5% 100px;
+  }
+
   .journey-timeline::before {
     left: 20px;
+    transform: none;
   }
 
   .journey-step {
-    gap: 20px;
+    flex-direction: column !important; 
+    padding-left: 1px; 
+    align-items: stretch; 
+    margin-bottom: 60px;
   }
 
   .journey-marker {
-    width: 40px;
+    left: 20px; 
+    transform: translateX(-50%);
+    top: 0;
+    margin-top: 0;
+  }
+
+  .journey-content {
+    width: 100%; 
+    margin-top: 10px; 
+    max-width: none;
+    padding: 20px;
+  }
+  
+  .journey-spacer {
+    display: none;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .img-wrapper {
+    height: 250px; 
+  }
+  
+  .journey-content h3 {
+    font-size: 20px;
+  }
+  
+  .journey-content p {
+    font-size: 14px;
   }
 }
