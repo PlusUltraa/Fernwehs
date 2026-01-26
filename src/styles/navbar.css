@@ -13,17 +13,17 @@
 
 .navbar {
   position: fixed;
-  top: 16px;
+  top: 10px; /* Reduced from 16px */
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 64px);
+  width: calc(100% - 40px); /* Tighter width */
   max-width: 1200px;
 
-  display: grid; /* Changed to grid for precise center alignment */
-  grid-template-columns: 1fr auto 1fr; /* 3 columns: Left, Center, Right */
+  display: grid; 
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
 
-  padding: 14px 28px;
+  padding: 10px 24px; /* Reduced padding from 14px 28px */
 
   background: var(--nav-bg);
   backdrop-filter: blur(18px);
@@ -32,7 +32,7 @@
   border-radius: 999px;
   border: 1px solid var(--nav-border);
 
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04); /* Softer shadow */
 
   z-index: 1000;
 }
@@ -47,8 +47,8 @@
 
 .nav-logo a {
   font-family: "Playfair Display", serif;
-  font-size: 16px;
-  letter-spacing: 0.28em;
+  font-size: 15px; /* Slightly smaller */
+  letter-spacing: 0.25em;
   font-weight: 500;
   color: #000;
   text-decoration: none;
@@ -74,7 +74,7 @@
 .nav-center-tagline {
   justify-self: center;
   font-family: "Playfair Display", serif;
-  font-size: 15px;
+  font-size: 13px; /* Reduced from 15px */
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: #000;
@@ -104,16 +104,16 @@
 .nav-links {
   justify-self: end;
   display: flex;
-  gap: 28px;
+  gap: 24px; /* Reduced gap */
 }
 
 .nav-links a {
-  font-size: 13px;
+  font-size: 12px; /* Smaller font */
   letter-spacing: 0.08em;
   color: #222;
   text-decoration: none;
   position: relative;
-  padding: 6px 0;
+  padding: 4px 0;
   transition: color 0.3s ease;
   text-transform: uppercase;
 }
@@ -174,7 +174,7 @@
 
 .mobile-menu a {
   font-family: "Playfair Display", serif;
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: 0.12em;
   color: #000;
   text-decoration: none;
@@ -196,10 +196,9 @@
 
 @media (max-width: 900px) {
   .navbar {
-    width: calc(100% - 32px); /* Slightly wider on mobile */
-    padding: 12px 20px;
-    top: 12px;
-    /* Maintain 3-column grid for center alignment */
+    width: calc(100% - 24px); 
+    padding: 10px 16px;
+    top: 10px;
     grid-template-columns: 1fr auto 1fr; 
   }
 
@@ -211,31 +210,28 @@
     display: block;
   }
   
-  /* Logo adjustments */
   .nav-logo a {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 0.15em;
   }
 
-  /* Tagline adjustments */
   .nav-center-tagline {
-    font-size: 10px; /* Smaller text */
+    font-size: 10px; 
     letter-spacing: 0.1em;
   }
 }
 
-/* Small mobile devices */
 @media (max-width: 400px) {
   .nav-center-tagline {
-    display: none; /* Hide tagline on very small screens to avoid overlap */
+    display: none; 
   }
   
   .navbar {
-    grid-template-columns: 1fr auto; /* Just Logo and Hamburger */
+    grid-template-columns: 1fr auto; 
   }
 }
 
 body.scrolled .navbar {
   box-shadow:
-    0 16px 50px rgba(0, 0, 0, 0.08);
+    0 12px 30px rgba(0, 0, 0, 0.06);
 }

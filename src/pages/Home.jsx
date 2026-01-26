@@ -4,32 +4,38 @@ import "../styles/home.css";
 
 // IMAGES
 import heroImage from "../assets/images/hero.jpg";
-import globalExpertiseImg from "../assets/images/global-expertise.jpg";
+import globalExpertiseImg from "../assets/images/service-dentistry.jpg";
 import seamlessTravelImg from "../assets/images/seamless-travel.jpg";
-import recoveryImg from "../assets/images/recovery.jpg";
+import recoveryImg from "../assets/images/service-laser.jpg";
 import womanImg from "../assets/images/woman.jpg";
+import wellness from "../assets/images/wellness.png";
+
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
-  /* Lock scroll until intro is dismissed */
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   useEffect(() => {
     document.body.style.overflow = entered ? "auto" : "hidden";
   }, [entered]);
 
-  /* Detect first scroll to dismiss intro */
-  useEffect(() => {
-    if (entered) return;
-    const handleScroll = () => setEntered(true);
-    window.addEventListener("wheel", handleScroll, { once: true });
-    window.addEventListener("touchmove", handleScroll, { once: true });
-    return () => {
-      window.removeEventListener("wheel", handleScroll);
-      window.removeEventListener("touchmove", handleScroll);
-    };
-  }, [entered]);
+  // useEffect(() => {
+  //   if (entered) return;
+  //   const handleScroll = () => setEntered(true);
+  //   window.addEventListener("wheel", handleScroll, { once: true });
+  //   window.addEventListener("touchmove", handleScroll, { once: true });
+  //   return () => {
+  //     window.removeEventListener("wheel", handleScroll);
+  //     window.removeEventListener("touchmove", handleScroll);
+  //   };
+  // }, [entered]);
 
   const handlePlayVideo = () => {
     if (videoRef.current) {
@@ -38,95 +44,182 @@ export default function Home() {
     }
   };
 
-  // Animation variants for scroll reveals
   const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
   };
+
+  const faqs = [
+    { q: "Is India safe for aesthetic care?", a: "Yes — Fernwehs uses globally benchmarked SOPs, top specialists & verified partner clinics." },
+    { q: "How much can I save?", a: "Up to 60–70% vs. GCC/UK without compromising quality." },
+    { q: "How long is treament?", a: "Most treatments are done in hours" },
+    { q: "How long is recovery?", a: "Most treatments offer next-day mobility & hotel-based recovery." },
+    { q: "Do you help with visas?", a: "Yes, our concierge team assists end-to-end with medical visas and travel." },
+    { q: "Is aftercare included?", a: "Yes — you receive digital records & remote follow-ups" }
+  ];
 
   return (
     <>
-      {/* INTRO OVERLAY */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {!entered && (
           <motion.div
             className="intro-overlay"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
           >
             <motion.div
               className="intro-content"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -60 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 0.8 }}
             >
-              {/* MIRROR BACKGROUND */}
-              <div className="heritage-mirror-bg" />
-
-              {/* TITLE */}
               <div className="mirror-glass">
                 <h1>FERNWEHS</h1>
                 <p className="tagline">THE NEW YOU</p>
-                <div className="scroll-indicator">
-                  <span />
-                </div>
+                <div className="scroll-indicator"><span /></div>
                 <span className="scroll-text">Scroll to Begin</span>
               </div>
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
-      {/* MAIN HOME */}
       <motion.div
         className="home-wrapper"
         initial={{ opacity: 0 }}
-        animate={{ opacity: entered ? 1 : 0 }}
-        transition={{ duration: 1 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
-        {/* HERO SECTION */}
-        <section
-          className="hero"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        >
+        <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
           <div className="hero-overlay-text">
             <h1>FERNWEHS</h1>
-            <p>LUXURY AESTHETIC TOURISM</p>
+            <p className="sub-head">A Destination for the New You</p>
+            <p className="hero-desc">Where world-class anti-ageing & signature smile design meet luxury hospitality.</p>
+            <div className="hero-btns">
+              <a href="/contact" className="btn-gold">Book Consultation</a>
+              <a href="https://wa.me/918949466002" className="btn-outline">WhatsApp Concierge</a>
+            </div>
           </div>
         </section>
 
-        {/* 1. PHILOSOPHY SECTION: "THE NEW YOU" */}
-        <section className="philosophy-section">
-          <div className="philosophy-watermark">THE NEW YOU</div>
+        <section className="why-choose-section">
           <motion.div 
-            className="philosophy-content"
+            className="section-container"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={fadeUp}
           >
-            <h2>
-              Beauty is not just seen.<br />
-              It is <span className="gold-accent">Experienced.</span>
-            </h2>
-            <p>
-              At Fernwehs, we bridge the gap between world-class medical expertise 
-              and the serenity of a luxury vacation. We believe that your journey 
-              to transformation should be as beautiful as the result. 
-              Leave as a traveler, return as <strong>The New You</strong> at Best prices.
-            </p>
+            <div className="section-title-center">
+              <h2>Why Fernwehs?</h2>
+              <p>Luxury Reimagined. Wellness Redefined.</p>
+            </div>
+            
+            <div className="why-grid">
+              <div className="why-card">
+                <h3>Elite Specialists</h3>
+                <p>Top dermatology & cosmetic dentistry experts delivering natural, elegant enhancements.</p>
+              </div>
+              <div className="why-card">
+                <h3>Luxury Hospitality</h3>
+                <p>Chauffeured transfers, concierge support, curated wellness, and premium partner hotels.</p>
+              </div>
+              <div className="why-card">
+                <h3>International Quality</h3>
+                <p>NABH-grade clinics, European protocols, global SOPs, and fully documented treatments.</p>
+              </div>
+              <div className="why-card">
+                <h3>Unmatched Value</h3>
+                <p>Premium transformations in India at 60–70% lower cost compared to GCC, UK and US.</p>
+              </div>
+            </div>
           </motion.div>
         </section>
 
-        {/* 2. VIDEO EXPERIENCE SECTION */}
+        <section className="global-map-section">
+          <div className="map-content">
+            <h2>A Global Luxury Experience</h2>
+            <p className="map-tagline">Anchored in India. Global Capital of Premium Aesthetic Care. Trusted across the world.</p>
+            <div className="map-visual">
+               <div className="map-dot dubai"><span>Dubai</span></div>
+               <div className="map-dot london"><span>London</span></div>
+               <div className="map-dot sa"><span>New York</span></div>
+               <div className="map-dot india"><span>INDIA (HQ)</span></div>
+               <svg className="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+                 <path d="M20,30 Q50,10 80,50" className="flight-path" /> 
+                 <path d="M40,40 Q60,45 80,50" className="flight-path" /> 
+                 <path d="M45,80 Q65,85 80,50" className="flight-path" /> 
+               </svg>
+            </div>
+            <p className="map-footer">Patient Inflow: Dubai | Abu Dhabi | London | New York | Cape Town | Etc...</p>
+          </div>
+        </section>
+
+        <section className="services-preview-section">
+           <div className="section-container">
+             <div className="section-title-center">
+               <h2>Signature Services</h2>
+             </div>
+             <div className="services-compact-grid">
+               <a href="/services" className="service-tile">
+                 <img src={womanImg} alt="Anti-Ageing" />
+                 <span>Anti-Ageing</span>
+               </a>
+               <a href="/services" className="service-tile">
+                 <img src={globalExpertiseImg} alt="Cosmetic Dentistry" />
+                 <span>Cosmetic Dentistry</span>
+               </a>
+               <a href="/services" className="service-tile">
+                 <img src={recoveryImg} alt="Laser & Skin" />
+                 <span>Laser & Skin</span>
+               </a>
+               <a href="/services" className="service-tile">
+                 <img src={wellness} alt="Wellness" />
+                 <span>Wellness</span>
+               </a>
+             </div>
+             <div className="center-btn-row">
+                <a href="/services" className="btn-arrow">Explore All Services →</a>
+             </div>
+           </div>
+        </section>
+
+        <section className="faq-section">
+          <div className="section-container">
+             <h2>Common Questions</h2>
+             <div className="faq-grid">
+               {faqs.map((item, i) => (
+                 <div key={i} className="faq-item" onClick={() => toggleFaq(i)}>
+                   <div className="faq-q">
+                     {item.q}
+                     <span className="faq-toggle">{openFaq === i ? "−" : "+"}</span>
+                   </div>
+                   <AnimatePresence>
+                    {openFaq === i && (
+                      <motion.div 
+                        className="faq-a"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                      >
+                        <p>{item.a}</p>
+                      </motion.div>
+                    )}
+                   </AnimatePresence>
+                 </div>
+               ))}
+             </div>
+          </div>
+        </section>
+
         <section className="video-section">
           <motion.div 
             className="video-container"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={fadeUp}
           >
             <video 
@@ -134,103 +227,21 @@ export default function Home() {
               className="video-player"
               src="/public/experience.mp4" 
               controls={isPlaying}
-              // poster={conciergeImg}
+              loop
+              muted={!isPlaying}
             />
-            
             {!isPlaying && (
               <div className="video-overlay" onClick={handlePlayVideo}>
-                <button className="play-btn">
-                  <span className="play-icon"></span>
-                  Play Video
-                </button>
+                <button className="play-btn">Play Experience</button>
               </div>
             )}
           </motion.div>
         </section>
 
-        <section className="features-section">
-          
-          <motion.div 
-            className="feature-row"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp}
-          >
-            <div className="feature-image">
-              <img src={globalExpertiseImg} alt="World-class medical expertise" />
-            </div>
-            <div className="feature-text">
-              <span className="feature-label">01. EXPERTISE</span>
-              <h3>Global Medical Excellence</h3>
-              <p>
-                We partner exclusively with elite surgeons and accredited clinics 
-                worldwide. From cosmetic dentistry to advanced dermatology, 
-                access the best hands in the industry without borders.
-              </p>
-              <a href="/services" className="btn-arrow">Explore Services →</a>
-            </div>
-          </motion.div>
-
-          {/* STEP 2: LOGISTICS (REVERSE) */}
-          <motion.div 
-            className="feature-row reverse"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp}
-          >
-            <div className="feature-image">
-              <img src={seamlessTravelImg} alt="Seamless luxury travel" />
-            </div>
-            <div className="feature-text">
-              <span className="feature-label">02. JOURNEY</span>
-              <h3>Seamless Medical Travel</h3>
-              <p>
-                Your focus should be on you, not logistics. Our concierge team 
-                handles every detail—from private flights and 5-star 
-                accommodations to clinic transfers and visa assistance.
-              </p>
-              <a href="/journey" className="btn-arrow">View The Journey →</a>
-            </div>
-          </motion.div>
-
-          {/* STEP 3: RECOVERY */}
-          <motion.div 
-            className="feature-row"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeUp}
-          >
-            <div className="feature-image">
-              <img src={recoveryImg} alt="Private luxury recovery" />
-            </div>
-            <div className="feature-text">
-              <span className="feature-label">03. SANCTUARY</span>
-              <h3>Curated Recovery</h3>
-              <p>
-                Heal in absolute privacy and comfort. We curate tranquil 
-                recovery sanctuaries where bespoke wellness plans and 
-                discreet care ensure you bloom into your new self.
-              </p>
-              <a href="/contact" className="btn-arrow">Plan Your Stay →</a>
-            </div>
-          </motion.div>
-
-        </section>
-
-        {/* 4. FINAL CALL TO ACTION */}
-        <section className="final-cta">
-          <div className="cta-bg">
-            <img src={womanImg} alt="The New You" />
-          </div>
+        <section className="final-cta compact-cta">
           <div className="cta-content">
-            <h2>Ready to Meet The New You?</h2>
-            <p style={{ marginBottom: "32px", fontSize: "16px", opacity: 0.9, color: "white" }}>
-              Your private consultation is just a click away.
-            </p>
-            <a href="/contact" className="btn-gold">Begin Your Journey</a>
+            <h2>Start Your Transformation</h2>
+            <a href="/contact" className="btn-gold">Private Consultation</a>
           </div>
         </section>
 

@@ -16,6 +16,7 @@ export default function Footer() {
           <a href="/about">About</a>
           <a href="/services">Services</a>
           <a href="/journey">Journey</a>
+          <a href="/csr">The Second Life (CSR)</a>
           <a href="/contact">Contact</a>
         </div>
 

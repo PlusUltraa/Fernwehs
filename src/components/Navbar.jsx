@@ -11,25 +11,23 @@ export default function Navbar() {
 
   return (
     <>
-      {/* TOP NAVBAR */}
       <nav className="navbar">
-        {/* BRAND (LEFT) */}
         <div className="nav-logo">
           <Link to="/" onClick={closeMenu}>
             FERNWEHS
           </Link>
         </div>
 
-        {/* CENTER TAGLINE */}
         <div className="nav-center-tagline">
           The New You
         </div>
 
         {/* DESKTOP LINKS (RIGHT) */}
         <div className="nav-links">
-          {/* <Link to="/about">About</Link> */}
+          <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
           <Link to="/journey">Journey</Link>
+          <Link to="/csr">Impact</Link>
           <Link to="/contact">Contact</Link>
         </div>
 
@@ -63,15 +61,16 @@ export default function Navbar() {
             </button>
 
             {/* MOBILE LINKS */}
-            {/* <Link to="/about" onClick={closeMenu}>
+            <Link to="/about" onClick={closeMenu}>
               About
-            </Link> */}
+            </Link>
             <Link to="/services" onClick={closeMenu}>
               Services
             </Link>
             <Link to="/journey" onClick={closeMenu}>
               Journey
             </Link>
+            <Link to="/csr">Impact</Link>
             <Link to="/contact" onClick={closeMenu}>
               Contact
             </Link>
