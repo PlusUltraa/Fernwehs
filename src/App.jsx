@@ -11,6 +11,8 @@ import Services from "./pages/Services";
 import Journey from "./pages/Journey";
 import Destination from "./pages/Destination";
 import Contact from "./pages/Contact";
+import CSR from "./pages/CSR";
+
 
 export default function App() {
   const location = useLocation();
@@ -27,6 +29,7 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/journey" element={<Journey />} />
           <Route path="/destination-india" element={<Destination />} />
+          <Route path="/csr" element={<CSR />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </AnimatePresence>

@@ -1,205 +1,169 @@
-/* =========================
-   COLOR SYSTEM
-   ========================= */
-
 :root {
   --gold: #d4af37;
-  --gold-soft: rgba(212, 175, 55, 0.28);
-  --text-dark: #111;
+  --bg-dark: #111;
   --text-muted: #666;
-  --bg-light: #fafafa;
 }
 
-/* =========================
-   HERO
-   ========================= */
-
 .about-hero {
-  height: 70vh;
+  height: 50vh; /* Compact Hero */
+  background: #000;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background:
-    radial-gradient(circle at 20% 20%,
-      rgba(201, 162, 77, 0.18),
-      transparent 40%),
-    radial-gradient(circle at 80% 60%,
-      rgba(201, 162, 77, 0.12),
-      transparent 45%),
-    linear-gradient(to bottom,
-      #ffffff,
-      #f8f8f8);
+  padding: 0 20px;
 }
-
-.about-hero-content {
-  max-width: 720px;
-}
-
 .about-hero h1 {
   font-family: "Playfair Display", serif;
-  font-size: 46px;
-  letter-spacing: 0.14em;
-  font-weight: 500;
+  font-size: 36px;
+  max-width: 700px;
+  margin: 0 auto 10px;
 }
-
 .about-hero p {
-  margin-top: 14px;
-  font-size: 13px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-/* =========================
-   GENERIC SECTION
-   ========================= */
-
-.about-section {
-  padding: 80px 14%;
-  background: #ffffff;
-  color: var(--text-dark);
-}
-
-.about-section h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 30px;
-  margin-bottom: 20px;
-  letter-spacing: 0.04em;
-}
-
-.about-section p {
-  max-width: 720px;
-  font-size: 15px;
-  line-height: 1.85;
-  color: var(--text-muted);
-}
-
-.about-section p strong {
   color: var(--gold);
-  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
-/* =========================
-   ETHOS
-   ========================= */
+/* STORY SPLIT */
+.about-story {
+  padding: 60px 0;
+  background: #fff;
+}
+.story-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  align-items: center;
+}
+.story-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+.story-text p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  color: #444;
+}
+.story-image img {
+  width: 100%;
+  border-radius: 8px;
+  height: 300px;
+  object-fit: cover;
+}
 
-.about-ethos {
-  padding: 70px 14%; 
-  background: linear-gradient(to bottom, #fafafa, #ffffff);
+/* ETHOS COMPACT */
+.about-ethos-compact {
+  padding: 40px 0;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.ethos-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  text-align: center;
+  flex-wrap: wrap;
+}
+.ethos-item h3 {
+  font-family: "Playfair Display", serif;
+  color: var(--gold);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.ethos-item p {
+  font-size: 13px;
+  color: #777;
+}
+
+/* LEADERSHIP GRID */
+.leadership-compact {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.leadership-compact h2 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 30px;
+}
+.leader-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.leader-card {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  transition: all 0.2s;
+}
+.leader-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+.leader-card h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #222;
+}
+.leader-card p {
+  font-size: 12px;
+  color: #888;
+}
+
+/* DIFFERENCE */
+.difference-section {
+  padding: 60px 20px;
+  background: #1a1a1a;
+  color: #fff;
   text-align: center;
 }
-
-.about-ethos h2 {
+.difference-section h2 {
   font-family: "Playfair Display", serif;
-  font-size: 30px;
+  color: #fff;
+  margin-bottom: 30px;
 }
-
-.ethos-grid {
+.diff-list {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  margin-top: 48px; 
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
 }
-
-.ethos-card {
-  padding: 24px 16px;
-  background: transparent;
-  border: none;
+.diff-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #222;
+  padding: 15px;
+  border-radius: 8px;
 }
-
-.ethos-card::before {
-  content: "";
-  width: 32px;
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    var(--gold),
-    transparent
-  );
-  display: block;
-  margin: 0 auto 16px;
-  opacity: 0.6;
-}
-
-.ethos-card h3 {
+.diff-item span {
   font-family: "Playfair Display", serif;
-  font-size: 20px;
-  letter-spacing: 0.14em;
+  font-size: 24px;
   color: var(--gold);
 }
-
-/* =========================
-   LEADERSHIP
-   ========================= */
-
-.leaders-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 48px;
+.diff-item p {
+  font-size: 13px;
+  color: #ddd;
+  margin: 0;
 }
 
-.leader-card {
-  padding: 32px 24px;
-  border-radius: 18px;
-  background: #ffffff;
-  border: 1px solid var(--gold-soft);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.leader-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.05);
-}
-
-.leader-card h4 {
-  font-family: "Playfair Display", serif;
-  font-size: 17px;
-  letter-spacing: 0.08em;
-  margin-bottom: 10px;
-  color: var(--text-dark);
-}
-
-.leader-card p {
-  font-size: 13.5px;
-  line-height: 1.65;
-  color: var(--text-muted);
-}
-
-/* =========================
-   RESPONSIVE
-   ========================= */
-
-@media (max-width: 1024px) {
-  .ethos-grid,
-  .leaders-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .about-section,
-  .about-ethos {
-    padding: 70px 10%;
-  }
-}
-
-@media (max-width: 600px) {
-  .ethos-grid,
-  .leaders-grid {
+@media (max-width: 768px) {
+  .story-container, .leader-grid, .diff-list {
     grid-template-columns: 1fr;
   }
-
-  .about-hero {
-    height: 60vh;
-  }
-
-  .about-hero h1 {
-    font-size: 34px;
-  }
-
-  .about-section,
-  .about-ethos {
-    padding: 60px 8%;
-  }
+  .about-hero { height: 40vh; }
+  .ethos-container { gap: 30px; }
 }
