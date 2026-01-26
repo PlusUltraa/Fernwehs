@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method Not Allowed" });
   }
 
-  const { name, email, phone, consent } = req.body;
+  const { name, email, phone, consent, message, city } = req.body;
 
   if (!consent) {
     return res.status(400).json({ message: "Consent required" });
@@ -31,6 +31,8 @@ export default async function handler(req, res) {
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>City:</strong> ${city}</p>
+        <p><strong>Message:</strong> ${message}</p>
         <hr />
         <p>Source: FERNWEHS Website</p>
       `

@@ -46,8 +46,8 @@
 }
 
 .nav-logo a {
-  font-family: "Playfair Display", serif;
-  font-size: 15px; /* Slightly smaller */
+  font-family: "PrimorStylish", serif;
+  font-size: 18px;
   letter-spacing: 0.25em;
   font-weight: 500;
   color: #000;
@@ -73,7 +73,7 @@
 
 .nav-center-tagline {
   justify-self: center;
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 13px; /* Reduced from 15px */
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -173,7 +173,7 @@
 }
 
 .mobile-menu a {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 24px;
   letter-spacing: 0.12em;
   color: #000;

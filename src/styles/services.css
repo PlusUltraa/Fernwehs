@@ -12,7 +12,7 @@
 
 /* Single column centered layout */
 .services-container {
-  max-width: 900px; /* Reduced width for better readability */
+  max-width: 1100px;
   margin: 0 auto;
   padding: 120px 24px 60px;
   position: relative;
@@ -76,7 +76,7 @@
 }
 
 .section-title h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 32px;
   color: #111;
   margin: 0;
@@ -91,18 +91,17 @@
   margin: 0;
 }
 
-/* PREMIUM LIST STYLE FOR PDF ITEMS */
 .service-list-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px 32px;
   border-top: 1px solid rgba(212, 175, 55, 0.15);
   padding-top: 32px;
-  margin-left: 104px; /* Align with text */
+  margin-left: 104px;
 }
 
 .service-item h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 17px;
   color: #d4af37;
   margin: 0 0 6px 0;
@@ -155,7 +154,7 @@
 }
 
 .services-footer h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 32px;
   margin-bottom: 16px;
   color: #222;
@@ -191,7 +190,7 @@
   }
 
   .service-list-grid {
-    grid-template-columns: 1fr; /* Single column list */
+    grid-template-columns: 1fr; 
     margin-left: 0;
     gap: 24px;
   }
@@ -199,7 +198,7 @@
   .section-header {
     flex-direction: column;
     gap: 16px;
-    align-items: center; /* Center align header items */
+    align-items: center;
     text-align: center;
   }
 
@@ -227,8 +226,7 @@
     padding-bottom: 40px;
   }
 
-  /* Adjust inline button for mobile */
   .inline-book-btn {
-    margin-top: 8px; /* Add some space if it wraps under title */
+    margin-top: 8px;
   }
 }

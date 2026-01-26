@@ -225,7 +225,7 @@ export default function Home() {
             <video 
               ref={videoRef}
               className="video-player"
-              src="/public/experience.mp4" 
+              src="/experience.mp4" 
               controls={isPlaying}
               loop
               muted={!isPlaying}

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PageTransition from "../components/PageTransition";
 import "../styles/contact.css";
 
@@ -18,11 +18,25 @@ export default function Contact() {
     name: "",
     email: "",
     phone: "",
+    city: "",
+    message: "",
     consent: false
   });
 
   const [phoneError, setPhoneError] = useState("");
   const [consentError, setConsentError] = useState("");
+
+  // Auto-fetch City using IP Geolocation
+  useEffect(() => {
+    fetch("https://ipapi.co/json/")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.city) {
+          setFormData((prev) => ({ ...prev, city: data.city }));
+        }
+      })
+      .catch((err) => console.error("City auto-fetch failed:", err));
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -45,28 +59,23 @@ export default function Contact() {
 
     if (hasError) return;
 
+    // Simulate API call
     fetch("/api/consultation.contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        consent: formData.consent
-      })
+      body: JSON.stringify(formData)
     });
 
-
     console.log("Consultation Request:", formData);
-
     setSubmitted(true);
   };
 
   return (
     <PageTransition>
       <section className="contact-hero">
+        <h1 className="sr-only">Contact Fernwehs for Luxury Aesthetic Consultation</h1>
 
         {/* BACKGROUND SHAPE */}
         <div className="ambient-shape shape-1" />
@@ -78,26 +87,24 @@ export default function Contact() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1>Your Private Concierge Awaits</h1>
+          <h2>Your Private Concierge Awaits</h2>
           <p>Begin your transformation with a confidential consultation.</p>
 
           <div className="contact-actions">
-            <motion.a
-              href="#"
+            <motion.button
               className="btn-primary"
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.97 }}
               onClick={(e) => {
                 e.preventDefault();
-                console.log(e)
                 setShowForm(true);
               }}
             >
               Book a Private Consultation
-            </motion.a>
+            </motion.button>
 
             <motion.a
-              href="https://wa.me/918949466002?text=Hello%20FERNWEHS%20Concierge%2C%0A%0AI%E2%80%99m%20interested%20in%20a%20private%20aesthetic%20consultation%20and%20would%20like%20to%20know%20more%20about%20personalized%20treatment%20options."
+              href="https://wa.me/918949466002?text=Hello%20FERNWEHS%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
@@ -121,22 +128,27 @@ export default function Contact() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               onSubmit={handleSubmit}
             >
+              <h3>Request Consultation</h3>
+              
               {/* GOOGLE SIGN-IN */}
-              <GoogleLogin
-                onSuccess={(res) => {
-                  if (!res?.credential) return;
-                  try {
-                    const user = jwtDecode(res.credential);
-                    setFormData((prev) => ({
-                      ...prev,
-                      name: user.name || "",
-                      email: user.email || ""
-                    }));
-                  } catch {}
-                }}
-                onError={() => console.log("Google Login Failed")}
-                useOneTap={false}
-              />
+              <div className="google-login-wrapper">
+                  <GoogleLogin
+                    onSuccess={(res) => {
+                      if (!res?.credential) return;
+                      try {
+                        const user = jwtDecode(res.credential);
+                        setFormData((prev) => ({
+                          ...prev,
+                          name: user.name || "",
+                          email: user.email || ""
+                        }));
+                      } catch {}
+                    }}
+                    onError={() => console.log("Google Login Failed")}
+                    useOneTap={false}
+                    shape="pill"
+                  />
+              </div>
 
               <div className="lux-divider">or continue privately</div>
 
@@ -148,6 +160,7 @@ export default function Contact() {
                   setFormData({ ...formData, name: e.target.value })
                 }
                 required
+                className="input-field"
               />
 
               <input
@@ -158,6 +171,7 @@ export default function Contact() {
                   setFormData({ ...formData, email: e.target.value })
                 }
                 required
+                className="input-field"
               />
 
               {/* PHONE INPUT */}
@@ -175,6 +189,30 @@ export default function Contact() {
                 {phoneError && (
                   <span className="error-text">{phoneError}</span>
                 )}
+              </div>
+
+              {/* CITY INPUT (Auto-fetched) */}
+              <input
+                type="text"
+                placeholder="City *"
+                value={formData.city}
+                onChange={(e) =>
+                  setFormData({ ...formData, city: e.target.value })
+                }
+                required
+                className="input-field"
+              />
+
+              {/* MESSAGE TEXTAREA */}
+              <div className="message-wrapper">
+                <textarea
+                    placeholder="How can we help you? (Max 1000 chars)"
+                    maxLength={1000}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="textarea-field"
+                />
+                <span className="char-count">{formData.message.length}/1000</span>
               </div>
 
               {/* CONSENT */}
@@ -200,7 +238,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="btn-primary"
+                className="btn-submit"
                 disabled={!formData.consent}
               >
                 Submit Request

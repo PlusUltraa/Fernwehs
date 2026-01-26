@@ -11,7 +11,7 @@
   font-size: 56px;
   margin-bottom: 24px;
   color: #111;
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
 }
 
 .journey-hero p {
@@ -46,7 +46,7 @@
     transparent
   );
   transform: translateX(-50%);
-  opacity: 0.3;
+  opacity: 0.7;
 }
 
 /* STEP CARD */
@@ -70,8 +70,8 @@
 
 /* CONTENT BOX */
 .journey-content {
-  width: 42%;
-  padding: 30px;
+  width: 44.5%;
+  padding: 20px;
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 12px;
@@ -97,7 +97,7 @@
   font-size: 24px;
   margin-bottom: 12px;
   color: #111;
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
 }
 
 .journey-content p {
@@ -143,7 +143,7 @@
 
 .results-header h2 {
   font-size: 42px;
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   color: #111;
   margin-bottom: 16px;
 }
@@ -153,11 +153,8 @@
   font-size: 16px;
 }
 
-/* Updated Grid for Wider Cards */
 .results-grid {
   display: grid;
-  /* Use auto-fit with a larger minmax to ensure cards are wide but responsive */
-  /* Reduced min-width slightly for better tablet scaling */
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
   gap: 40px;
   max-width: 1400px;
@@ -217,7 +214,7 @@
 }
 
 .result-info h4 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 24px;
   color: #111;
   margin-bottom: 8px;
