@@ -15,7 +15,7 @@
   padding: 0 20px;
 }
 .about-hero h1 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 36px;
   max-width: 700px;
   margin: 0 auto 10px;
@@ -42,7 +42,7 @@
   align-items: center;
 }
 .story-text h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 28px;
   margin-bottom: 20px;
 }
@@ -74,7 +74,7 @@
   flex-wrap: wrap;
 }
 .ethos-item h3 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   color: var(--gold);
   font-size: 20px;
   margin-bottom: 5px;
@@ -92,7 +92,7 @@
   margin: 0 auto;
 }
 .leadership-compact h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   margin-bottom: 30px;
 }
 .leader-grid {
@@ -129,7 +129,7 @@
   text-align: center;
 }
 .difference-section h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   color: #fff;
   margin-bottom: 30px;
 }
@@ -150,7 +150,7 @@
   border-radius: 8px;
 }
 .diff-item span {
-  font-family: "Playfair Display", serif;
+  font-family: "Granjon Roman", serif;
   font-size: 24px;
   color: var(--gold);
 }

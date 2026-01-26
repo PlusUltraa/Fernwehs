@@ -27,7 +27,7 @@ export default function Navbar() {
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
           <Link to="/journey">Journey</Link>
-          <Link to="/csr">Impact</Link>
+          <Link to="/csr">Impact(CSR)</Link>
           <Link to="/contact">Contact</Link>
         </div>
 
