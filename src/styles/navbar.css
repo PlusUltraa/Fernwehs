@@ -46,7 +46,7 @@
 }
 
 .nav-logo a {
-  font-family: "PrimorStylish", serif;
+  font-family: "Raleway",Arial,sans-serif;
   font-size: 18px;
   letter-spacing: 0.25em;
   font-weight: 500;
@@ -108,7 +108,8 @@
 }
 
 .nav-links a {
-  font-size: 12px; /* Smaller font */
+  font-size: 12px;
+  font-family: "Granjon Roman", serif;
   letter-spacing: 0.08em;
   color: #222;
   text-decoration: none;
