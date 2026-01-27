@@ -9,6 +9,7 @@ import seamlessTravelImg from "../assets/images/seamless-travel.jpg";
 import recoveryImg from "../assets/images/service-laser.jpg";
 import womanImg from "../assets/images/woman.jpg";
 import wellness from "../assets/images/wellness.png";
+import heroVideo from "../assets/videos/Herowhiteboard.mp4";
 
 
 export default function Home() {
@@ -92,20 +93,25 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <section className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
-          <div className="hero-overlay-text">
-            <h1>FERNWEHS</h1>
-            <p className="sub-head">A Destination for the New You</p>
-            <p className="hero-desc">Where world-class anti-ageing & signature smile design meet luxury hospitality.</p>
-            <div className="hero-btns">
-              <a href="/contact" className="btn-gold">Book Consultation</a>
-              <a href="https://wa.me/918949466002" className="btn-outline">WhatsApp Concierge</a>
-            </div>
-          </div>
-        </section>
+        <section className="hero video-hero">
+        <video 
+          autoPlay 
+          muted 
+          loop 
+          playsInline 
+          className="hero-video-bg"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+
+        <div className="hero-fluid-container">
+          <h1 className="glass-fluid-text">FERNWEHS</h1>
+          <p className="glass-fluid-subtext">Luxury Aesthetics Tourism</p>
+        </div>
+      </section>
 
         <section className="why-choose-section">
-          <motion.div 
+          <motion.div
             className="section-container"
             initial="hidden"
             whileInView="visible"
@@ -114,9 +120,9 @@ export default function Home() {
           >
             <div className="section-title-center">
               <h2>Why Fernwehs?</h2>
-              <p>Luxury Reimagined. Wellness Redefined.</p>
+              <p>Luxury Reimagined. Wellness Redefined. Affordable</p>
             </div>
-            
+
             <div className="why-grid">
               <div className="why-card">
                 <h3>Elite Specialists</h3>
@@ -143,62 +149,62 @@ export default function Home() {
             <h2>A Global Luxury Experience</h2>
             <p className="map-tagline">Anchored in India. Global Capital of Premium Aesthetic Care. Trusted across the world.</p>
             <div className="map-visual">
-               <div className="map-dot dubai"><span>Dubai</span></div>
-               <div className="map-dot london"><span>London</span></div>
-               <div className="map-dot sa"><span>New York</span></div>
-               <div className="map-dot india"><span>INDIA (HQ)</span></div>
-               <svg className="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
-                 <path d="M20,30 Q50,10 80,50" className="flight-path" /> 
-                 <path d="M40,40 Q60,45 80,50" className="flight-path" /> 
-                 <path d="M45,80 Q65,85 80,50" className="flight-path" /> 
-               </svg>
+              <div className="map-dot dubai"><span>Dubai</span></div>
+              <div className="map-dot london"><span>London</span></div>
+              <div className="map-dot sa"><span>New York</span></div>
+              <div className="map-dot india"><span>INDIA (HQ)</span></div>
+              <svg className="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M20,30 Q50,10 80,50" className="flight-path" />
+                <path d="M40,40 Q60,45 80,50" className="flight-path" />
+                <path d="M45,80 Q65,85 80,50" className="flight-path" />
+              </svg>
             </div>
             <p className="map-footer">Patient Inflow: Dubai | Abu Dhabi | London | New York | Cape Town | Etc...</p>
           </div>
         </section>
 
         <section className="services-preview-section">
-           <div className="section-container">
-             <div className="section-title-center">
-               <h2>Signature Services</h2>
-             </div>
-             <div className="services-compact-grid">
-               <a href="/services" className="service-tile">
-                 <img src={womanImg} alt="Anti-Ageing" />
-                 <span>Anti-Ageing</span>
-               </a>
-               <a href="/services" className="service-tile">
-                 <img src={globalExpertiseImg} alt="Cosmetic Dentistry" />
-                 <span>Cosmetic Dentistry</span>
-               </a>
-               <a href="/services" className="service-tile">
-                 <img src={recoveryImg} alt="Laser & Skin" />
-                 <span>Laser & Skin</span>
-               </a>
-               <a href="/services" className="service-tile">
-                 <img src={wellness} alt="Wellness" />
-                 <span>Wellness</span>
-               </a>
-             </div>
-             <div className="center-btn-row">
-                <a href="/services" className="btn-arrow">Explore All Services →</a>
-             </div>
-           </div>
+          <div className="section-container">
+            <div className="section-title-center">
+              <h2>Signature Services</h2>
+            </div>
+            <div className="services-compact-grid">
+              <a href="/services" className="service-tile">
+                <img src={womanImg} alt="Anti-Ageing" />
+                <span>Anti-Ageing</span>
+              </a>
+              <a href="/services" className="service-tile">
+                <img src={globalExpertiseImg} alt="Cosmetic Dentistry" />
+                <span>Cosmetic Dentistry</span>
+              </a>
+              <a href="/services" className="service-tile">
+                <img src={recoveryImg} alt="Laser & Skin" />
+                <span>Laser & Skin</span>
+              </a>
+              <a href="/services" className="service-tile">
+                <img src={wellness} alt="Wellness" />
+                <span>Wellness</span>
+              </a>
+            </div>
+            <div className="center-btn-row">
+              <a href="/services" className="btn-arrow">Explore All Services →</a>
+            </div>
+          </div>
         </section>
 
         <section className="faq-section">
           <div className="section-container">
-             <h2>Common Questions</h2>
-             <div className="faq-grid">
-               {faqs.map((item, i) => (
-                 <div key={i} className="faq-item" onClick={() => toggleFaq(i)}>
-                   <div className="faq-q">
-                     {item.q}
-                     <span className="faq-toggle">{openFaq === i ? "−" : "+"}</span>
-                   </div>
-                   <AnimatePresence>
+            <h2>Common Questions</h2>
+            <div className="faq-grid">
+              {faqs.map((item, i) => (
+                <div key={i} className="faq-item" onClick={() => toggleFaq(i)}>
+                  <div className="faq-q">
+                    {item.q}
+                    <span className="faq-toggle">{openFaq === i ? "−" : "+"}</span>
+                  </div>
+                  <AnimatePresence>
                     {openFaq === i && (
-                      <motion.div 
+                      <motion.div
                         className="faq-a"
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -207,25 +213,25 @@ export default function Home() {
                         <p>{item.a}</p>
                       </motion.div>
                     )}
-                   </AnimatePresence>
-                 </div>
-               ))}
-             </div>
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         <section className="video-section">
-          <motion.div 
+          <motion.div
             className="video-container"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <video 
+            <video
               ref={videoRef}
               className="video-player"
-              src="/experience.mp4" 
+              src="/experience.mp4"
               controls={isPlaying}
               loop
               muted={!isPlaying}

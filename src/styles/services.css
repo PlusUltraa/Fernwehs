@@ -5,13 +5,39 @@
    ========================= */
 
 .services-page {
-  background: #ffffff;
+  background: radial-gradient(circle at 50% 0%, #ffffff 0%, #fcfaf5 50%, #f7f3e9 100%);
   position: relative;
   padding-bottom: 80px;
+  overflow: hidden; /* Ensures ambient shapes don't cause scrollbars */
 }
 
-/* Single column centered layout */
-.services-container {
+.services-page::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.05), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.services-page::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.03), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+  .services-container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 120px 24px 60px;
@@ -123,24 +149,26 @@
 .inline-book-btn {
   display: inline-block;
   padding: 10px 24px;
-  border-radius: 99px;
-  background: #b69835da;
-  border: 1px solid #d4af37;
-  color: #0b0b0b;
+  border-radius: 50px; 
+  background: #d4af37; 
+  color: #fff; 
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
   text-decoration: none;
-  transition: all 0.3s ease;
-  white-space: nowrap; /* Prevent text wrapping inside button */
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); 
+  white-space: nowrap;
 }
 
 .inline-book-btn:hover {
-  background: #d4af37;
-  color: #ffffff;
+  background: #b5952f; 
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+  color: #fff;
 }
 
 /* =========================
@@ -164,19 +192,23 @@
   display: inline-block;
   margin-top: 20px;
   padding: 14px 36px;
-  border-radius: 99px;
+  border-radius: 50px; 
   background: #d4af37;
-  color: white;
+  color: #fff;
   letter-spacing: 1px;
   font-size: 13px;
+  font-weight: 600;
   text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
 }
 
 .bottom-cta-btn:hover {
   background: #b5952f;
   transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
 }
 
 /* =========================

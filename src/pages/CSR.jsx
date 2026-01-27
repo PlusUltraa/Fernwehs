@@ -3,12 +3,11 @@ import { motion } from "framer-motion";
 import PageTransition from "../components/PageTransition";
 import "../styles/csr.css";
 
-// Images (Reusing existing assets with CSS filters to match mood)
-import heroImg from "../assets/images/hero.jpg"; 
-import missionImg from "../assets/images/hero.jpg";
-import impact1 from "../assets/images/hero.jpg";
-import impact2 from "../assets/images/hero.jpg"; 
-import impact3 from "../assets/images/hero.jpg";
+import heroImg from "../assets/images/heroCSR.png"; 
+import missionImg from "../assets/images/empower.jpg";
+import impact1 from "../assets/images/impact1.png";
+import impact2 from "../assets/images/impact2.jpg"; 
+import impact3 from "../assets/images/impact3.jpg";
 
 export default function CSR() {
   const [countryCode, setCountryCode] = useState(null);
